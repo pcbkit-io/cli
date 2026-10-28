@@ -1,0 +1,22 @@
+name: Bug
+description: pcbkit did something wrong, or could not do it
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version and system
+      description: "`pcbkit --version`, and the system (macOS 15 arm64, Ubuntu 24.04 x86_64, Windows 11, …)"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: The command you ran, what you expected and what it did. Paste its JSON answer (or the part that matters).
+    validations:
+      required: true
+  - type: textarea
+    id: board
+    attributes:
+      label: The board
+      description: Attach the board (zip the project folder) or a link to it, or the smallest board that shows it. Only share boards you may share.

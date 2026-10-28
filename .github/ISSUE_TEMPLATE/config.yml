@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: The plugins for Claude, ChatGPT and Codex
+    url: https://github.com/pcbkit-io/plugins
+    about: Questions about PCBKit in an agent or a chat app
+  - name: PCBKit
+    url: https://pcbkit.io
+    about: The web app, docs and contacts
