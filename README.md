@@ -30,7 +30,7 @@ brew install pcbkit-io/tap/pcbkit
 
 The script downloads the release for your system from
 [GitHub Releases](https://github.com/pcbkit-io/cli/releases), checks its SHA-256 and installs
-`pcbkit` into `~/.local/bin` (with its web viewer in `~/.local/share/pcbkit`; Windows:
+`pcbkit` into `~/.local/bin` (its notices in `~/.local/share/pcbkit`; Windows:
 `%LOCALAPPDATA%\Programs\pcbkit`). `PCBKIT_VERSION=2026.10.28` installs that version,
 `PCBKIT_PREFIX=/usr/local` another place. Run it again to update.
 
@@ -126,6 +126,13 @@ result (our runs on AWS Graviton4 hosts, PCBKit main of 2026-10-28):
 
 [Issues](https://github.com/pcbkit-io/cli/issues) for bugs and wishes (attach the board, or the
 smallest board that shows it, when you can). Documentation: [pcbkit.io/docs](https://pcbkit.io/docs).
+
+## For maintainers
+
+Releases are built from PCBKit's private repository by this repository's `release` workflow
+(`.github/workflows/release.yml`), started by PCBKit's `make release-cli ARGS=--owner-approved`.
+It runs only on the owner's explicit command: nobody else, people or agents, starts, re-runs or
+re-dispatches it.
 
 ## Licence
 

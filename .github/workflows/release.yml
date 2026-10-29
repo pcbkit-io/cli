@@ -2,8 +2,8 @@ name: release
 
 # A release of pcbkit: started by PCBKit's `make release-cli` (never by a push or a pull request).
 # The source is PCBKit's private repository: `SOURCE_URL` (a secret, a pre-signed link valid for a
-# few hours, set by the release script just before) is a tarball with `src/` (the commit's source)
-# and `web/` (the web viewer built from it). Nothing is cached between runs.
+# few hours, set by the release script just before) is a tarball with `src/` (the commit's source).
+# Nothing is cached between runs.
 on:
   workflow_dispatch:
     inputs:
@@ -58,7 +58,7 @@ jobs:
           curl -fsSL --retry 3 -o source.tar.gz "$SOURCE_URL"
           tar -xzf source.tar.gz
           rm source.tar.gz
-          test -f src/Cargo.toml && test -f web/index.html
+          test -f src/Cargo.toml
       - name: Toolchain
         working-directory: src
         run: |
@@ -72,7 +72,6 @@ jobs:
           exe=pcbkit; [ "${{ runner.os }}" = Windows ] && exe=pcbkit.exe
           mkdir -p pkg/bin pkg/share/pcbkit
           cp src/target/${{ matrix.target }}/release/$exe pkg/bin/
-          cp -R web pkg/share/pcbkit/web
           cp cli/README.md cli/AGENTS.md cli/LICENSE.md pkg/
           python3 cli/.github/notices.py src ${{ matrix.target }} pkg/share/pcbkit/THIRD-PARTY-NOTICES.txt || python cli/.github/notices.py src ${{ matrix.target }} pkg/share/pcbkit/THIRD-PARTY-NOTICES.txt
           if [ "${{ runner.os }}" = Windows ]; then

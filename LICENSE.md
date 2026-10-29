@@ -2,7 +2,7 @@
 
 Copyright © 2026 Sergey Alekseev. All rights reserved, except as granted here.
 
-The `pcbkit` program published in this repository's releases (the binaries, their web viewer and
+The `pcbkit` program published in this repository's releases (the binaries and
 the install scripts) is free of charge. You may download, install and run it on any number of
 computers, for any purpose, personal or commercial, and use it in scripts, continuous integration
 and with AI agents. You may share the unmodified release archives together with this licence.
