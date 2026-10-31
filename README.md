@@ -31,7 +31,7 @@ brew install pcbkit-io/tap/pcbkit
 The script downloads the release for your system from
 [GitHub Releases](https://github.com/pcbkit-io/cli/releases), checks its SHA-256 and installs
 `pcbkit` into `~/.local/bin` (its notices in `~/.local/share/pcbkit`; Windows:
-`%LOCALAPPDATA%\Programs\pcbkit`). `PCBKIT_VERSION=2026.10.28` installs that version,
+`%LOCALAPPDATA%\Programs\pcbkit`). `PCBKIT_VERSION=2026.10.29` installs that version,
 `PCBKIT_PREFIX=/usr/local` another place. Run it again to update.
 
 | System | Archive |

@@ -7,7 +7,7 @@
 # against the release's SHA256SUMS and installs PREFIX/bin/pcbkit and PREFIX/share/pcbkit/.
 # Run it again to update.
 #
-#   PCBKIT_VERSION=2026.10.28   that version (default: the latest release)
+#   PCBKIT_VERSION=2026.10.29   that version (default: the latest release)
 #   PCBKIT_PREFIX=/usr/local    where (default: ~/.local)
 set -eu
 
