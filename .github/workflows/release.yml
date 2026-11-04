@@ -64,9 +64,19 @@ jobs:
         run: |
           rustup toolchain install --profile minimal
           rustup target add ${{ matrix.target }}
+      # The ARM Linux runner (4 cores, 16 GB) ran out of memory in the fat-LTO link and lost the
+      # server twice (2026-11-01, 2026-11-04): swap, and fewer crates compiled at once there.
+      - name: Swap
+        if: runner.os == 'Linux' && runner.arch == 'ARM64'
+        run: |
+          sudo fallocate -l 24G /swapfile2 && sudo chmod 600 /swapfile2 && sudo mkswap /swapfile2 > /dev/null && sudo swapon /swapfile2
+          free -g
       - name: Build
         working-directory: src
-        run: cargo build --locked --profile release -p pcbkit --target ${{ matrix.target }}
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = Linux ] && [ "$RUNNER_ARCH" = ARM64 ]; then export CARGO_BUILD_JOBS=2; fi
+          cargo build --locked --profile release -p pcbkit --target ${{ matrix.target }}
       - name: Package
         run: |
           exe=pcbkit; [ "${{ runner.os }}" = Windows ] && exe=pcbkit.exe
