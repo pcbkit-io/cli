@@ -1,3 +1,5 @@
+> **This repository is archived (12 November 2026).** PCBKit was rebuilt around plain KiCad projects. Its command line now comes with the plugin for Claude Code and Codex, [pcbkit-io/agent-plugin](https://github.com/pcbkit-io/agent-plugin), or by itself: `curl -fsSL https://pcbkit.io/install.sh | sh`. What follows describes the earlier program.
+
 # pcbkit — the PCBKit command line
 
 `pcbkit` routes, checks, renders and exports printed circuit boards on your own computer: KiCad
